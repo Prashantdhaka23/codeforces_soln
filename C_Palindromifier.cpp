@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+# define ll long long 
+# define py cout<<"YES"<<endl;
+# define pn cout<<"NO"<<endl;
+ll gcd(ll a, ll b) { if (b == 0) return a; return gcd(b, a % b);}
+// map<int,int> mp;
+// std::map<int,int>::iterator it;
+// for( it=mp.begin();it!= mp.end();it++){
+
+// }
+
+
+
+ int main(){
+
+ll t=1;
+// cin>>t;
+while(t--){
+int n,m=0,r;
+string s;
+cin>>s;
+n=s.size();
+cout<<3<<endl;
+
+cout<<"R "<<n-1<<endl;
+
+
+
+cout<<"L "<<n<<endl;
+
+
+cout<<"L 2"<<endl;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+ }
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+
+
+
+

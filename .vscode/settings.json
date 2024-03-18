@@ -1,0 +1,21 @@
+{
+     "files.associations": {
+          "iostream": "cpp",
+          "ostream": "cpp",
+          "cmath": "cpp",
+          "numeric": "cpp",
+          "unordered_map": "cpp",
+          "__locale": "cpp",
+          "functional": "cpp",
+          "random": "cpp",
+          "vector": "cpp",
+          "__bit_reference": "cpp",
+          "bitset": "cpp",
+          "chrono": "cpp",
+          "map": "cpp",
+          "set": "cpp",
+          "unordered_set": "cpp",
+          "algorithm": "cpp"
+     },
+     "cph.general.onceMaintainerMessage": false
+}

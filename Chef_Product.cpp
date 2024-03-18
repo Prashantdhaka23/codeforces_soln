@@ -1,0 +1,297 @@
+
+
+
+const ll mod = 1e9+7 ;//998244353;
+const int N=2e5+5;
+ 
+ll inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * inv(mod % i)) % mod) % mod;}
+ 
+ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
+ 
+ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
+ 
+ll gcd(ll a, ll b) { if (b == 0) return a; return gcd(b, a % b);}
+
+ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b;}
+ 
+ll ceil_div(ll a, ll b) {return a % b == 0 ? a / b : a / b + 1;}
+ 
+ll pwr(ll a, ll b) {a %= mod; ll res = 1; while (b > 0) {if (b & 1) res = res * a % mod; a = a * a % mod; b >>= 1;} return res;}
+
+ll pwrl(ll a, ll b) { ll res = 1; while (b > 0) {if (b & 1) res = res * a ; a = a * a ; b >>= 1;} return res;}
+
+//****************************Template Ends*******************************//
+ 
+
+
+//****** graph ajaency input******//
+
+//  int n, m; cin >> n >> m;vector<vector<int>> adj(n);for (int i = 0; i < m; i++){ int u, v; cin >> u >> v;  adj[u].pb(v);adj[v].pb(u); }
+
+//****** graph ajaency input end ******//
+
+//******matrix input *******//
+
+// int n,m;cin>>n>>m; vector<vector<int>> arr(n,vector<int> (m,0));for(int i=0;i<n;i++){ for(int j=0;j<m;j++){  cin>>arr[i][j]; } }
+
+//******matrix input end ********//
+
+//******string input**********//
+
+// int n; cin>>n; string s; cin>>s;
+
+// string s; cin>>s;
+
+// int k; cin>>k; string k ; cin>>k ;
+
+// string s1; cin>>s1;
+
+
+//****string input end ************//
+
+//*** double array input *******//
+
+// int n,m; cin>>n>>m; vector<int> v1(n);  vector<int> v2(m); for(int i=0;i<n;i++){  cin>>v1[i];} for(int i=0;i<m;i++){  cin>>v2[i];}
+
+//*** double array input *******//
+
+
+//****** vector input start ******//
+
+// int n; cin>>n; vector<int> v(n);  for(int i=0;i<n;i++){       cin>>v[i];    }
+
+//****** vector input end ******//
+
+
+
+
+void solve(){
+    //check for testcase;
+int x=0,y=0,z=0,k=0,ans=0;
+vector<int> ar;
+string res="YES";
+
+int n;
+cin>>n;
+
+
+if(n%2==1){
+
+ans++;
+
+if(n>8){
+    ans++;
+ n-=8;
+}
+
+ans+=n/16;
+
+cout<<ans<<endl;
+
+
+}
+
+if(n<=4){
+    if(n==2)
+ cout<<0<<endl;
+ else 
+ cout<<1<<endl;
+}
+
+else{
+ int x=sqrtl((n+1)/2);
+ if(n%2==1){
+cout<<(x/2+1)<<endl;
+
+ }else{
+cout<<(x+1)/2<<endl;
+
+ }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+int32_t main(){
+    prashant;
+int t=1;
+cin>>t;
+while(t--){
+solve();
+
+}
+return 0;
+}
+
+
+
+******************* sieve start **********************************//
+vector<bool> is_prime;
+void sieve_eth(int n){
+is_prime.resize(n+1,1);
+is_prime[0] = is_prime[1] = false;
+for (int i = 2; i * i <= n; i++) {
+    if (is_prime[i]) {
+        for (int j = i * i; j <= n; j += i)
+            is_prime[j] = false;
+    }
+}
+}
+
+
+ll spf[1000001];
+ 
+vector<ll> primes;
+void sieve() {
+ spf[1] = 1;
+ for (ll i = 2; i < 1000001; i++) {
+     spf[i] = i;
+ }
+ 
+ for (ll i = 4; i < 1000001; i += 2) {
+     spf[i] = 2;
+ }
+ 
+ for (ll i = 3; i * i < 1000001; i++) {
+     if (spf[i] == i) {
+         for (ll j = i * i; j < 1000001; j += i) {
+             if (spf[j] == j)
+                 spf[j] = i;
+         }
+ 
+     }
+ }
+ for (ll i = 2; i < 1000001; i++) {
+     if (spf[i] == i) {
+         primes.push_back(i);
+     }
+ }
+}
+ 
+vector<ll> getFactorization(ll x) {
+ vector<ll> ret;
+ while (x != 1) {
+ 
+     ret.push_back(spf[x]);
+     x = x / spf[x];
+ }
+ return ret;
+}
+******************* sieve ends **********************************//
+
+******************* ncr starts **********************************//
+
+ 
+ll power(ll x, ll i, ll p) {
+ ll ans = 1;
+ while (i > 0) {
+     if (i & 1)ans = (ans * x) % p;
+     i >>= 1;
+     x = (x * x) % p;
+ }
+ return ans;
+}
+ 
+ll modular_inverse(ll n, ll p) {
+ return power(n, p - 2, p);
+}
+ 
+ 
+long long fac[200000 + 1];
+void factorial() {
+ 
+ fac[0] = 1;
+ for (int i = 1 ; i <= 200000; i++) {
+ 
+     fac[i] = fac[i - 1] * i % mod;
+ }
+}
+ll ncr(ll n, ll r, ll p) {
+ if (r > n)   {
+     return 0;
+ }
+ if (n < 0 || r < 0)  {
+     return 0;
+ }
+ if (r == 0)
+     return 1;
+ 
+ return (fac[n] * power(fac[r], p - 2, p) % p * power(fac[n - r], p - 2, p) % p) % p;
+}
+******************* ncr starts **********************************//
+******************* dsu  ends **********************************//
+
+struct dsu{
+    vector<int> parent;
+    vector<int> st ;
+    int n ;
+    void setparent(){
+        for(int i = 0 ; i < n+1 ; i++){
+            parent[i] = i ;
+            st[i] = 1;
+        }
+        
+    }
+    int findparent(int v){
+        if(parent[v] == v) return v ;
+        else return parent[v] = findparent(parent[v]);
+    }
+   
+     bool unionset(int a , int b){
+        a = findparent(a);
+        b = findparent(b);
+        if(a == b) return false;
+        if(st[a] < st[b]) swap(a , b);
+        parent[b] = a ;
+        st[a] +=st[b]; 
+        return true;
+    }
+};
+******************* dsu ends  **********************************//
+
+
+
+const int Max = 2e5 +1;
+ll fact[Max];
+ll inv_fact[Max];
+
+void preSolveFact(ll n){
+    ll ans = 1;
+    fact[0] = 1;
+    for(int i = 1; i<=n; i++){
+        ans *=i;
+        ans %= mod;
+        fact[i] = ans;
+    }
+    inv_fact[n] = binpow(fact[n], mod-2);
+
+    for(int i = n-1; i>=0; i--){
+        inv_fact[i] = inv_fact[i+1] * (i+1) %mod;
+    }
+}
+ll nCr_pre(ll n, ll r){
+    if(n>=r && n>=0 && r>=0)
+    return fact[n] * inv_fact[r] %mod * inv_fact[n-r]%mod;
+    else return 0;
+}
+
+
+
+
+
+
+
+
+
+
